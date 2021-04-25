@@ -14,9 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   riftRedistPackages: []
   languagePackDirectory: 
-  assetConfigs:
-  - configList: []
-  - configList: []
-  - configList: []
+  assetConfigs: []
   targetPlatform: 3
   runOvrLint: 1

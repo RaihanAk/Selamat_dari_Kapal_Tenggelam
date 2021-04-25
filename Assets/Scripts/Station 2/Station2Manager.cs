@@ -115,7 +115,7 @@ public class Station2Manager : GameManager
                 personaClusters[indexPersona].animasi.SetInteger("Kondisi", 0);
 
                 // The persona are not seated anymore
-                personaClusters[indexPersona].seatedAt = 0;
+                personaClusters[indexPersona].seatedAt = personaClusters.Length + 1;
             }
 
 
@@ -127,14 +127,16 @@ public class Station2Manager : GameManager
             /* Case: Persona already seated, and currently selected. But clicked to another seat
              * Solution: remove name from lifeBoats.name and seatedAt from personaClusters.seatedAt
             */
-            if (personaClusters[indexPersona].seatedAt != 0)
+            if (personaClusters[indexPersona].seatedAt != personaClusters.Length + 1)
             {
                 lifeBoats[personaClusters[indexPersona].seatedAt].name = "";
-                personaClusters[indexPersona].seatedAt = 0;
+                personaClusters[indexPersona].seatedAt = personaClusters.Length + 1;
             }
 
+            Debug.Log("indexPersona:" + indexPersona + " priority:" + priority);
+
             /* Standard function protocol
-             */ 
+             */
             // Retrieve name info
             lifeBoats[priority].name = tempCluster.name;
             Debug.Log("name: " + lifeBoats[priority].name);
@@ -146,8 +148,9 @@ public class Station2Manager : GameManager
                 lifeBoats[priority].seat.transform.localRotation;
 
             // Now the persona are seated and update the camera
-            personaClusters[indexPersona].seatedAt = priority++;
+            personaClusters[indexPersona].seatedAt = priority;  //priority++;
             UpdateFaceCamera();
+            Debug.Log(lifeBoats[priority].name +" seated at " + personaClusters[indexPersona].seatedAt);
 
             // Time to stop the wavy-wavy-please-notice-me animation
             // TO-DO: Switch the animator to idle-seating pose.
