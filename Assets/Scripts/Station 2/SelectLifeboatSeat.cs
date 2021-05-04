@@ -20,6 +20,7 @@ public class SelectLifeboatSeat : MonoBehaviour
 
     public Station2Manager station2Manager;
     public int priority = 0;
+    public AudioSource audioGrabbed;
 
     void Start()
 
@@ -41,5 +42,8 @@ public class SelectLifeboatSeat : MonoBehaviour
     private void ObjectGrabbed(object sender, InteractableObjectEventArgs e)
     {
         station2Manager.SelectLifeBoat(priority);
+
+        if (audioGrabbed != null)
+            audioGrabbed.PlayOneShot(audioGrabbed.clip);
     }
 }

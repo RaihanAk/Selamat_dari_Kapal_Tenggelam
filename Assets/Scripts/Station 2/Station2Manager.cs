@@ -42,8 +42,6 @@ public class Station2Manager : GameManager
     public Station2UI station2UI;
     private PersonaCluster tempCluster;
    
-
-
     // Fixed Update is called once per fixed time
     void FixedUpdate()
     {
@@ -71,6 +69,7 @@ public class Station2Manager : GameManager
         }
     }
 
+    #region UI CALLBACKS
     public void SelectPersona(int codePersona)
     {
         tempCluster = personaClusters[codePersona];
@@ -171,6 +170,7 @@ public class Station2Manager : GameManager
 
         station2UI.lifeboatText.text = buffer;
     }
+    #endregion
 
     public void CalculateScore()
     {
@@ -246,7 +246,7 @@ public class Station2Manager : GameManager
 
     public override void ReportNewScore()
     {
-        // Buat nyimpen soal di GameManager utama
+        // Save score on main GameManager 
         ProgressCache.Instance.ReportNewValue(score);
     }
 
@@ -263,5 +263,10 @@ public class Station2Manager : GameManager
         sceneChanger.sceneTo("Station 3");
 
         // To-do: Bikin kata2 selamatnya
+    }
+
+    public float GetRemainingTime()
+    {
+        return dueTime - timePassed;
     }
 }

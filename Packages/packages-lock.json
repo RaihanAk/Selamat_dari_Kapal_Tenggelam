@@ -117,8 +117,8 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.xr.oculus.standalone": {
-      "version": "2.38.4",
+    "com.unity.xr.oculus.android": {
+      "version": "2.38.6",
       "depth": 0,
       "source": "registry",
       "dependencies": {},

@@ -20,6 +20,7 @@ public class SelectPersona : MonoBehaviour
 
     public Station2Manager station2Manager;
     public int personaIndex = 0;
+    public AudioSource audioGrabbed;
 
     void Start()
     {
@@ -40,6 +41,9 @@ public class SelectPersona : MonoBehaviour
     private void ObjectGrabbed(object sender, InteractableObjectEventArgs e)
     {
         station2Manager.SelectPersona(personaIndex);
+
+        if (audioGrabbed != null)
+            audioGrabbed.PlayOneShot(audioGrabbed.clip);
     }
 
 }
