@@ -6,9 +6,13 @@ using UnityEngine;
 
 public class IntroManager : MonoBehaviour
 {
+    [Header("Case")]
+    public CaseData[] cases;
+
     [Header("Dialogue")]
+    public float delayFirstDialogue = 3f;
     public DialogueManager dialogueManager;
-    public bool isReadyPlayDialogue = false;
+    public bool isReadyPlayDialogue = true;
 
     [Header("Transition Anim")]
     public GameObject[] fadingWalls;
@@ -17,12 +21,19 @@ public class IntroManager : MonoBehaviour
     public float delayBeforeLoad = 1;
 
     [Header("Component")]
-    public AudioSource audio;
+    public AudioSource audioSFX;
     public SceneChanger sceneChanger;
+
+    private PanelSequencer panelSequencer;
 
     #region UNITY CALLBACK
     private void Start()
     {
+        panelSequencer = GetComponent<PanelSequencer>();
+
+        // Assign method if the event is called. Assign using += remove using -=
+        dialogueManager.OnDialogueEndConfirmation += InstructionEnd;
+
         if (isReadyPlayDialogue)
             StartPlayDialogue();    
     }
@@ -43,6 +54,12 @@ public class IntroManager : MonoBehaviour
     }
     #endregion
 
+    public void InstructionEnd()
+    {
+        panelSequencer.StartPanelSequencer();
+        audioSFX.Play();
+    }
+
     public void StartFadeWall()
     {
         for (int i = 0; i < fadingWalls.Length; i++)
@@ -53,7 +70,14 @@ public class IntroManager : MonoBehaviour
 
     private void StartPlayDialogue()
     {
-        StartCoroutine(dialogueManager.StartDialogue());
+        StartCoroutine(DelayStartDialogue());
+    }
+
+    private IEnumerator DelayStartDialogue()
+    {
+        yield return new WaitForSeconds(delayFirstDialogue);
+
+        dialogueManager.StartPlayDialogue();
     }
 
     private IEnumerator TransitionToCaseOne()

@@ -91,7 +91,7 @@ namespace VRTK
         protected virtual void InternalTriggerHapticPulse(VRTK_ControllerReference controllerReference, float strength)
         {
             InternalCancelHapticPulse(controllerReference);
-            float hapticPulseStrength = Mathf.Clamp(strength, 0f, 1f);
+            float hapticPulseStrength = Mathf.Clamp(strength, 0f, 3f);
             VRTK_SDK_Bridge.HapticPulse(controllerReference, hapticPulseStrength);
         }
 

@@ -26,6 +26,7 @@ public class LifeBoat
 
 public class Station2Manager : GameManager 
 {
+    [Header("Data pool")]
     [SerializeField] PersonaCluster[] personaClusters;
     [SerializeField] LifeBoat[] lifeBoats;
 
@@ -35,13 +36,35 @@ public class Station2Manager : GameManager
     public bool isStationComplete = false;
     private float score = 0;
 
-    private float timePassed = 0;
-    private float dueTime = 480;
+    public float timePassed = 0;
+    public float dueTime = 480;
 
+    public float delayFirstDialogue = 3;
+    public float delayBackToLab = 5f;
+
+    [Header("Audio SFX")]
+    public AudioSource boatEngine;
+
+    [Header("Component")]
     public SceneChanger sceneChanger;
     public Station2UI station2UI;
-    private PersonaCluster tempCluster;
-   
+    public DialogueManager dialogueManager;
+
+    private PanelSequencer panelSequencer;
+
+    public PersonaCluster tempCluster;
+
+    #region UNITY CALLBACK
+    private void Start()
+    {
+        panelSequencer = GetComponent<PanelSequencer>();
+
+        // Assign method if the event is called. Assign using += remove using -=
+        dialogueManager.OnDialogueEndConfirmation += InstructionEnd;
+
+        StartCoroutine(DelayStartDialogue());
+    }
+
     // Fixed Update is called once per fixed time
     void FixedUpdate()
     {
@@ -68,6 +91,7 @@ public class Station2Manager : GameManager
             }
         }
     }
+    #endregion
 
     #region UI CALLBACKS
     public void SelectPersona(int codePersona)
@@ -78,13 +102,13 @@ public class Station2Manager : GameManager
         station2UI.agePersona.text = "Umur : " + personaClusters[codePersona].age;
         station2UI.descPersona.text = "Deskripsi : " + personaClusters[codePersona].description;
 
-        UpdateFaceCamera();
+        UpdateFaceCamera(); 
     }
 
     public void SelectLifeBoat(int priority)
     {
         // Priority on editor are set to 1,2,3, or 4
-        priority--;
+        // priority--;
 
         // HARUS udah ada persona yg dipilih. Baru bisa milih LifeBoat seat
         if (station2UI.namePersona.text.Equals("Nama : "))
@@ -94,6 +118,8 @@ public class Station2Manager : GameManager
         else
         {
             int indexPersona = 0;
+
+
 
             /* Cases: If clicking to a seat but the seat's already taken by another persona. 
              * Solution: Move the persona on the seat to original position,
@@ -123,9 +149,12 @@ public class Station2Manager : GameManager
                 if (tempCluster.name == personaClusters[i].name)
                     indexPersona = i;
 
+
+
             /* Case: Persona already seated, and currently selected. But clicked to another seat
              * Solution: remove name from lifeBoats.name and seatedAt from personaClusters.seatedAt
             */
+            Debug.Log("IF? left val " + (personaClusters[indexPersona].seatedAt) + " right val " + (personaClusters.Length + 1));
             if (personaClusters[indexPersona].seatedAt != personaClusters.Length + 1)
             {
                 lifeBoats[personaClusters[indexPersona].seatedAt].name = "";
@@ -134,7 +163,10 @@ public class Station2Manager : GameManager
 
             Debug.Log("indexPersona:" + indexPersona + " priority:" + priority);
 
+
+
             /* Standard function protocol
+             * 
              */
             // Retrieve name info
             lifeBoats[priority].name = tempCluster.name;
@@ -172,10 +204,18 @@ public class Station2Manager : GameManager
     }
     #endregion
 
+    public void InstructionEnd()
+    {
+        station2UI.isInstructionComplete = true;
+
+        panelSequencer.StartPanelSequencer();
+
+        StartCoroutine(DelayStartDialogue(2));
+    }
+
     public void CalculateScore()
     {
-        float jawabanBenar = 0,
-            tempScore = 0;
+        float jawabanBenar = 0;
 
         // Get all the current persona on the lifeboat
         for (int i = 0; i < lifeBoats.Length; i++)
@@ -190,11 +230,50 @@ public class Station2Manager : GameManager
             }
         }
 
-        /* Correct answer, in order, and their indexes are :
+        /* This is the formulae from the OmniVR project, and is not used
+         * 
+         * Correct answer, in order, and their indexes are :
          *  Desi    [4], 
          *  Cintami [3],
          *  Budi    [2],
          *  Ahmad   [1]. 
+         */
+        //for (int i = 0; i < personaSavedIndex.Length; i++)
+        //{
+        //    if (personaSavedIndex[i] == 4 ||
+        //        personaSavedIndex[i] == 3 ||
+        //        personaSavedIndex[i] == 2 ||
+        //        personaSavedIndex[i] == 1)
+        //        jawabanBenar++;
+
+        //    switch (i)
+        //    {
+        //        case 0:
+        //            if (personaSavedIndex[i] == 4)
+        //                tempScore += 10;
+        //            break;
+        //        case 1:
+        //            if (personaSavedIndex[i] == 3)
+        //                tempScore += 5;
+        //            break;
+        //        case 2:
+        //            if (personaSavedIndex[i] == 2)
+        //                tempScore += 2.5f;
+        //            break;
+        //        case 3:
+        //            if (personaSavedIndex[i] == 1)
+        //                tempScore += 2.5f;
+        //            break;
+        //    }
+        //}
+
+        //tempScore = tempScore + (jawabanBenar * 20);
+        //Debug.Log("jawabanBenar: " + jawabanBenar +
+        //    " score" + tempScore);
+
+
+        /* 
+         * New formulae 
          */
         for (int i = 0; i < personaSavedIndex.Length; i++)
         {
@@ -203,39 +282,45 @@ public class Station2Manager : GameManager
                 personaSavedIndex[i] == 2 ||
                 personaSavedIndex[i] == 1)
                 jawabanBenar++;
+        }
+        Debug.Log("Jawaban benar: " +jawabanBenar);
 
-            switch (i)
+
+        /* Calculating */
+        if (jawabanBenar == 4)
+        {
+            score = 90;
+
+            if (personaSavedIndex[0] == 4 &&
+                personaSavedIndex[1] == 3 &&
+                personaSavedIndex[2] == 2 &&
+                personaSavedIndex[3] == 1)
+                score = 100;
+        }
+        else if (jawabanBenar == 3)
+        {
+            score = 80;
+        }
+        else if (jawabanBenar == 2)
+        {
+            score = 40;
+
+            for (int i = 0; i < personaSavedIndex.Length; i++)
             {
-                case 0:
-                    if (personaSavedIndex[i] == 4)
-                        tempScore += 10;
-                    break;
-                case 1:
-                    if (personaSavedIndex[i] == 3)
-                        tempScore += 5;
-                    break;
-                case 2:
-                    if (personaSavedIndex[i] == 2)
-                        tempScore += 2.5f;
-                    break;
-                case 3:
-                    if (personaSavedIndex[i] == 1)
-                        tempScore += 2.5f;
-                    break;
+                if (personaSavedIndex[i] == 4 ||
+                    personaSavedIndex[i] == 3)
+                        score += 10;
             }
         }
+        else if (jawabanBenar == 1)
+        {
+            score = 20;
+        }
+        else
+            score = 0;
 
-        tempScore = tempScore + (jawabanBenar * 20);
-        Debug.Log("jawabanBenar: " + jawabanBenar +
-            " score" + tempScore);
-
-        score = tempScore;
-    }
-
-    public void EndEarly()
-    {
-        isStationComplete = true;
-        StationEnds();
+        // score = tempScore;
+        Debug.Log("Final score is : " + score);
     }
 
     private void UpdateFaceCamera()
@@ -247,26 +332,52 @@ public class Station2Manager : GameManager
     public override void ReportNewScore()
     {
         // Save score on main GameManager 
-        ProgressCache.Instance.ReportNewValue(score);
+        if (ProgressCache.Instance != null)
+            ProgressCache.Instance.ReportNewValue(score);
     }
 
     public void StationEnds()
     {
+        isStationComplete = true;
+
+        // Finish Dialogue
+        dialogueManager.StartPlayDialogue();
+        boatEngine.Play();
+
+        // Calculate score based on whoever picked to be on the boat at the time
         CalculateScore();
-
         Debug.Log("Station 2 End. Score: " + score + ". Time left: " + (dueTime - timePassed));
+        station2UI.ShowScore(score);
 
-        station2UI.showScore(score);
+        ReportNewScore();        
 
-        ReportNewScore();
-
-        sceneChanger.sceneTo("Station 3");
-
-        // To-do: Bikin kata2 selamatnya
+        // Ends
+        StartCoroutine(DelayBackToLab(delayBackToLab));
     }
 
     public float GetRemainingTime()
     {
         return dueTime - timePassed;
+    }
+
+    private IEnumerator DelayStartDialogue()
+    {
+        yield return new WaitForSeconds(delayFirstDialogue);
+
+        dialogueManager.StartPlayDialogue();
+    }
+
+    private IEnumerator DelayStartDialogue(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        dialogueManager.StartPlayDialogue();
+    }
+
+    private IEnumerator DelayBackToLab(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+
+        StartCoroutine(sceneChanger.LoadSceneAsync("Ending"));
     }
 }

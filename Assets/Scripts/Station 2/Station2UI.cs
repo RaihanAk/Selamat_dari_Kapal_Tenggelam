@@ -10,12 +10,20 @@ public class Station2UI : MonoBehaviour
     public bool isInstructionComplete = false;
 
     //kumpulan text
-    public Text namePersona,
-        agePersona,
+    [Header("Essential Text")]
+    public Text countdownText;
+
+    [Header("Persona's information")]
+    public Text namePersona;
+    public Text agePersona,
         descPersona,
         lifeboatText;
 
-    int TutorialText = 1;
+    [Header("Persona's information")]
+    public Text debugText;
+
+    private int TutorialText = 1;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -28,25 +36,22 @@ public class Station2UI : MonoBehaviour
     {
         if (isInstructionComplete)
         {
-            
-        }
+            float res = station2Manager.dueTime - station2Manager.timePassed;
 
-        if (station2Manager.isStationComplete)
-        {
-            
+            string tempTimer = string.Format("{0:00}", res);
+            countdownText.text = tempTimer;
         }
     }
 
-    public void SetInstructionComplete()
+    public void ShowScore(float score)
     {
-        
-    }
 
-    public void showScore(float score)
-    {
-        
         //txtKeteranganCara.text = ("Score anda ") + score;
-        
+
+        if (debugText != null)
+            debugText.text = "score at text: " + score.ToString();
         Debug.Log("score at text: " + score.ToString());
+
+        countdownText.text = score.ToString();
     }
 }

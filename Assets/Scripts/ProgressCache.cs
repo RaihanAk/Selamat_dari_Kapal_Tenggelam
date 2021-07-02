@@ -30,7 +30,6 @@ public class ProgressCache : MonoBehaviour
     {
         resultValue[currentStation - 1] = scoreValue;
         currentStation++;
-        Debug.Log(currentStation);
 
         if (currentStation > resultValue.Length)
             SaveData();
@@ -53,7 +52,7 @@ public class ProgressCache : MonoBehaviour
         fileName = "Report " + date + ".txt";
 
         // string path = "Assets/Original/Resources/" +fileName;
-        string path = Application.dataPath + "/Original/Resources/" + fileName;
+        string path = Application.dataPath + "/Resources/" + fileName;
 
         // Write some text to the "fileName" file
         StreamWriter writer = new StreamWriter(path, true);
@@ -62,7 +61,7 @@ public class ProgressCache : MonoBehaviour
         for (int i = 0; i < resultValue.Length; i++)
             writer.WriteLine("Station " + (i + 1) + " : " +resultValue[i]);
 
-        writer.WriteLine("\nTrait");
+        // writer.WriteLine("\nTrait");
         // TO-DO: wait for pa Aul gives the conclusion of these test.
 
         writer.Close();

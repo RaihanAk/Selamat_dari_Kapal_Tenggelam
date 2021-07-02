@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16254a172927bc64389f7deadcb25677, type: 3}
+  m_Name: 01_part2_entry-3
+  m_EditorClassIdentifier: 
+  dialogueName: 01_part2_entry-3
+  clip: {fileID: 8300000, guid: 3cdc2731f2ec6ab43bfe8d8486ad9c6d, type: 3}
+  dialogueText: Setelah memilih karakter, untuk mengajak menaiki sekoci, arahkan
+    pointer ke tempat duduk yang tersedia di sekoci lalu tekan tombol yang ada di
+    jari telunjuk anda.
+  afterDelayType: 0
+  waitSeconds: 2
