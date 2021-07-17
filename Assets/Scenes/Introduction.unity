@@ -4111,7 +4111,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &182321711
 Transform:
@@ -4125,7 +4125,7 @@ Transform:
   m_LocalScale: {x: 0.125, y: 0.125, z: 0.125}
   m_Children: []
   m_Father: {fileID: 268938059}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &182321712
 MeshRenderer:
@@ -6635,6 +6635,7 @@ Transform:
   m_LocalScale: {x: 0.50000066, y: 0.5000007, z: 0.50000083}
   m_Children:
   - {fileID: 1202176614}
+  - {fileID: 1368859812}
   - {fileID: 182321711}
   - {fileID: 1285120407}
   - {fileID: 782293869}
@@ -14502,7 +14503,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 11fe467f72bc00e4a93ef7cf676409fe, type: 2}
   - {fileID: 11400000, guid: 5ef087f8b968243428719d5af6e25658, type: 2}
   dialogueTextScreen: {fileID: 0}
-  dialogueInt: 0
   speakers:
   - {fileID: 1669878464}
   - {fileID: 1736674617}
@@ -16712,7 +16712,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 697685068}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.278, y: 0.829, z: -0.195}
+  m_LocalPosition: {x: 0.278, y: 0.869, z: -0.195}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 128995814}
@@ -16720,7 +16720,7 @@ Transform:
   - {fileID: 1894910149}
   - {fileID: 23138026}
   m_Father: {fileID: 1868430356}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &697685070
 MonoBehaviour:
@@ -16983,7 +16983,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 112276, guid: d9809c5e8418bb047bf2c8ba1d1a2cec, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 488160, guid: d9809c5e8418bb047bf2c8ba1d1a2cec, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18939,7 +18939,7 @@ GameObject:
   m_Component:
   - component: {fileID: 763657077}
   m_Layer: 0
-  m_Name: TooltipsTestStation
+  m_Name: Table to try
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19238,7 +19238,7 @@ Transform:
   m_Children:
   - {fileID: 54617650}
   m_Father: {fileID: 268938059}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: -90}
 --- !u!1 &783229201
 GameObject:
@@ -25384,7 +25384,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Pembuat : \nMuhammad Raihan A\n\n\nPengisi Suara : \nAngel Permata Jauhari\n\n\nSupervisor
-    :\nR. Sudrajat\nMira Suryani\n\nNarasumber\nAulia Iskandarsyah\nPak Wisnu\n\n\n"
+    :\nR. Sudrajat\nMira Suryani\n\nNarasumber :\nAulia Iskandarsyah\n\n\n\n"
 --- !u!222 &1077889258
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28716,6 +28716,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1868430356}
     m_Modifications:
+    - target: {fileID: 182086, guid: 9ab61c80dfd411f4c86b8553b0c42cf1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 441652, guid: 9ab61c80dfd411f4c86b8553b0c42cf1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.451
@@ -28806,19 +28810,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22412712, guid: 9ab61c80dfd411f4c86b8553b0c42cf1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 62.1
       objectReference: {fileID: 0}
     - target: {fileID: 22412712, guid: 9ab61c80dfd411f4c86b8553b0c42cf1, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 16.8
       objectReference: {fileID: 0}
     - target: {fileID: 22482598, guid: 9ab61c80dfd411f4c86b8553b0c42cf1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 62.1
       objectReference: {fileID: 0}
     - target: {fileID: 22482598, guid: 9ab61c80dfd411f4c86b8553b0c42cf1, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 16.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ab61c80dfd411f4c86b8553b0c42cf1, type: 3}
@@ -30297,7 +30301,7 @@ Transform:
   m_Children:
   - {fileID: 2061809317}
   m_Father: {fileID: 268938059}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 225}
 --- !u!1 &1287378848
 GameObject:
@@ -30992,6 +30996,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sphere Fade Black VRSim
+      objectReference: {fileID: 0}
+    - target: {fileID: 502869950760374838, guid: 922bef67f49c8cf4fa86e308576fcbd8,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 502869950760374841, guid: 922bef67f49c8cf4fa86e308576fcbd8,
         type: 3}
@@ -32392,6 +32401,85 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1368840050}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1368859811
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1368859812}
+  - component: {fileID: 1368859814}
+  - component: {fileID: 1368859813}
+  m_Layer: 0
+  m_Name: Base (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1368859812
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368859811}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.125, y: 0.125, z: 0.125}
+  m_Children: []
+  m_Father: {fileID: 268938059}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &1368859813
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368859811}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 60b4d44b99973ea4e827c9c46613b856, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1368859814
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368859811}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1370361557
 GameObject:
   m_ObjectHideFlags: 0
@@ -39461,7 +39549,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 17fbdcd5bfdf30247b61901b245585d3, type: 2}
+  - {fileID: 2100000, guid: fa756b232992781448908e45ad28eece, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -42699,7 +42787,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 112276, guid: d9809c5e8418bb047bf2c8ba1d1a2cec, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 488160, guid: d9809c5e8418bb047bf2c8ba1d1a2cec, type: 3}
       propertyPath: m_LocalPosition.x
@@ -44369,7 +44457,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1868430356}
   m_Layer: 0
-  m_Name: Tooltips
+  m_Name: Objects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44389,8 +44477,8 @@ Transform:
   - {fileID: 1195986111}
   - {fileID: 1213356869}
   - {fileID: 1083587334}
-  - {fileID: 2036575165}
   - {fileID: 697685069}
+  - {fileID: 2036575165}
   m_Father: {fileID: 763657077}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -44649,10 +44737,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 985192450}
     m_Modifications:
+    - target: {fileID: 114308799454349252, guid: 55bcebf0300be464cb5f7ef8d78bb36d,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.15686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 114308799454349252, guid: 55bcebf0300be464cb5f7ef8d78bb36d,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.15686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 114308799454349252, guid: 55bcebf0300be464cb5f7ef8d78bb36d,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.15686275
+      objectReference: {fileID: 0}
     - target: {fileID: 114642603537886326, guid: 55bcebf0300be464cb5f7ef8d78bb36d,
         type: 3}
       propertyPath: m_Text
-      value: Grab the Object
+      value: Pegang objeknya
       objectReference: {fileID: 0}
     - target: {fileID: 223426564196141252, guid: 55bcebf0300be464cb5f7ef8d78bb36d,
         type: 3}
@@ -47904,7 +48007,7 @@ Transform:
   - {fileID: 919296981}
   - {fileID: 985192450}
   m_Father: {fileID: 1868430356}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2037973013
 GameObject:
@@ -49520,7 +49623,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Lever
+  m_Text: Tuas
 --- !u!222 &2075500667
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -51454,7 +51557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.019607844, g: 0.18431373, b: 0.37254903, a: 1}
+  m_Color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
   m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -51511,7 +51614,7 @@ MonoBehaviour:
     m_FontSize: 70
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 1
+    m_MinSize: 0
     m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -51519,7 +51622,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Flick the lever to toggle text MAX and MIN
+  m_Text: 'Pegang tuas lalu geser untuk nilai
+
+    MAX dan MIN'
 --- !u!222 &222679005863757244
 CanvasRenderer:
   m_ObjectHideFlags: 0

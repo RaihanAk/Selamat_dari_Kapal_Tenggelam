@@ -44,6 +44,7 @@ public class Station2Manager : GameManager
 
     [Header("Audio SFX")]
     public AudioSource boatEngine;
+    public AudioSource objSFX;
 
     [Header("Component")]
     public SceneChanger sceneChanger;
@@ -96,17 +97,21 @@ public class Station2Manager : GameManager
     #region UI CALLBACKS
     public void SelectPersona(int codePersona)
     {
+        objSFX.Play();
+
         tempCluster = personaClusters[codePersona];
 
         station2UI.namePersona.text = "Nama : " + personaClusters[codePersona].name;
         station2UI.agePersona.text = "Umur : " + personaClusters[codePersona].age;
         station2UI.descPersona.text = "Deskripsi : " + personaClusters[codePersona].description;
 
-        UpdateFaceCamera(); 
+        UpdateFaceCamera();
     }
 
     public void SelectLifeBoat(int priority)
     {
+        objSFX.Play();
+
         // Priority on editor are set to 1,2,3, or 4
         // priority--;
 
@@ -138,6 +143,8 @@ public class Station2Manager : GameManager
                 personaClusters[indexPersona].person.transform.rotation =
                     personaClusters[indexPersona].oriPosition.rotation;
                 personaClusters[indexPersona].animasi.SetInteger("Kondisi", 0);
+
+                // personaClusters[indexPersona].person.GetComponent<Rigidbody>().isKinematic = false;
 
                 // The persona are not seated anymore
                 personaClusters[indexPersona].seatedAt = personaClusters.Length + 1;
@@ -186,8 +193,8 @@ public class Station2Manager : GameManager
             // Time to stop the wavy-wavy-please-notice-me animation
             // TO-DO: Switch the animator to idle-seating pose.
             personaClusters[indexPersona].animasi.SetInteger("Kondisi", 1);
-           
 
+            // personaClusters[indexPersona].person.GetComponent<Rigidbody>().isKinematic = true;
         }
         
         // Update List
