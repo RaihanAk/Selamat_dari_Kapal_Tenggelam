@@ -61,7 +61,7 @@ public class Station2Manager : GameManager
         panelSequencer = GetComponent<PanelSequencer>();
 
         // Assign method if the event is called. Assign using += remove using -=
-        dialogueManager.OnDialogueEndConfirmation += InstructionEnd;
+        dialogueManager.OnDialogueEndConfirmation += DialogueTrigger;
 
         StartCoroutine(DelayStartDialogue());
     }
@@ -144,8 +144,6 @@ public class Station2Manager : GameManager
                     personaClusters[indexPersona].oriPosition.rotation;
                 personaClusters[indexPersona].animasi.SetInteger("Kondisi", 0);
 
-                // personaClusters[indexPersona].person.GetComponent<Rigidbody>().isKinematic = false;
-
                 // The persona are not seated anymore
                 personaClusters[indexPersona].seatedAt = personaClusters.Length + 1;
             }
@@ -194,7 +192,6 @@ public class Station2Manager : GameManager
             // TO-DO: Switch the animator to idle-seating pose.
             personaClusters[indexPersona].animasi.SetInteger("Kondisi", 1);
 
-            // personaClusters[indexPersona].person.GetComponent<Rigidbody>().isKinematic = true;
         }
         
         // Update List
@@ -211,13 +208,17 @@ public class Station2Manager : GameManager
     }
     #endregion
 
-    public void InstructionEnd()
+    public void DialogueTrigger()
     {
-        station2UI.isInstructionComplete = true;
+        if (dialogueManager.dialogueInt == 5)
+        {
+            panelSequencer.StartPanelSequencer();
+            objSFX.Play();
 
-        panelSequencer.StartPanelSequencer();
-
-        StartCoroutine(DelayStartDialogue(2));
+            StartCoroutine(DelayStartDialogue(2));
+        }
+        else if (dialogueManager.dialogueInt == 10)
+            station2UI.isInstructionComplete = true;
     }
 
     public void CalculateScore()
@@ -236,48 +237,6 @@ public class Station2Manager : GameManager
                 }
             }
         }
-
-        /* This is the formulae from the OmniVR project, and is not used
-         * 
-         * Correct answer, in order, and their indexes are :
-         *  Desi    [4], 
-         *  Cintami [3],
-         *  Budi    [2],
-         *  Ahmad   [1]. 
-         */
-        //for (int i = 0; i < personaSavedIndex.Length; i++)
-        //{
-        //    if (personaSavedIndex[i] == 4 ||
-        //        personaSavedIndex[i] == 3 ||
-        //        personaSavedIndex[i] == 2 ||
-        //        personaSavedIndex[i] == 1)
-        //        jawabanBenar++;
-
-        //    switch (i)
-        //    {
-        //        case 0:
-        //            if (personaSavedIndex[i] == 4)
-        //                tempScore += 10;
-        //            break;
-        //        case 1:
-        //            if (personaSavedIndex[i] == 3)
-        //                tempScore += 5;
-        //            break;
-        //        case 2:
-        //            if (personaSavedIndex[i] == 2)
-        //                tempScore += 2.5f;
-        //            break;
-        //        case 3:
-        //            if (personaSavedIndex[i] == 1)
-        //                tempScore += 2.5f;
-        //            break;
-        //    }
-        //}
-
-        //tempScore = tempScore + (jawabanBenar * 20);
-        //Debug.Log("jawabanBenar: " + jawabanBenar +
-        //    " score" + tempScore);
-
 
         /* 
          * New formulae 

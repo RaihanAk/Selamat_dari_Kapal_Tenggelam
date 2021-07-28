@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 01_part1_entry-5
   m_EditorClassIdentifier: 
   dialogueName: 01_part1_entry-5
-  clip: {fileID: 8300000, guid: 1c105e5d9ebc20e4b817d07a9115f1ed, type: 3}
-  dialogueText: Tahapan simulasi selamat dari kapal tenggelam dimulai.
+  clip: {fileID: 8300000, guid: 2e60788a846e18e42bda7af322fda534, type: 3}
+  dialogueText: Buatlah pilihan anda dalam 8 menit sebelum kapal tenggelam seutuhnya
   afterDelayType: 1
   waitSeconds: 1

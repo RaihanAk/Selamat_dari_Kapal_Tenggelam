@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16254a172927bc64389f7deadcb25677, type: 3}
-  m_Name: 01_part1_entry-4
+  m_Name: 01_part2_entry-5
   m_EditorClassIdentifier: 
-  dialogueName: 01_part1_entry-4
-  clip: {fileID: 8300000, guid: 8d76fe036a0cbf44697b0edbbbbf77b4, type: 3}
-  dialogueText: Sekoci hanya dapat membawa 4 orang. Dan prioritas anda terhadap orang
-    yang dipilih berpengaruh
-  afterDelayType: 0
-  waitSeconds: 1
+  dialogueName: 01_part2_entry-5
+  clip: {fileID: 8300000, guid: 1c105e5d9ebc20e4b817d07a9115f1ed, type: 3}
+  dialogueText: Tahapan simulasi selamat dari kapal tenggelam dimulai.
+  afterDelayType: 1
+  waitSeconds: 0

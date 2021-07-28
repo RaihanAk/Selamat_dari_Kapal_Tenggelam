@@ -191,7 +191,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Selamat dari kapal tenggelam
+  m_Text: 'Selamat dari kapal tenggelam
+
+'
 --- !u!222 &19491
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7076,12 +7078,12 @@ GameObject:
   - component: {fileID: 309727976}
   - component: {fileID: 309727978}
   m_Layer: 5
-  m_Name: Empty box (1)
+  m_Name: Case 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &309727975
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14954,7 +14956,7 @@ GameObject:
   - component: {fileID: 630864526}
   - component: {fileID: 630864525}
   m_Layer: 5
-  m_Name: Selamat dari kapal tenggelam (1)
+  m_Name: Selamat dari kapal tenggelam case
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17456,7 +17458,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Pilih kasus:'
+  m_Text: 'Kasus:'
 --- !u!222 &713802833
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25743,6 +25745,7 @@ RectTransform:
   m_Children:
   - {fileID: 1216181547}
   - {fileID: 19489}
+  - {fileID: 1818716741}
   m_Father: {fileID: 630864524}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -42924,6 +42927,86 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1813353840}
   m_Mesh: {fileID: 4579454407841743219, guid: d1b453e35223e89488913e81271de32a, type: 3}
+--- !u!1 &1818716740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1818716741}
+  - component: {fileID: 1818716743}
+  - component: {fileID: 1818716742}
+  m_Layer: 5
+  m_Name: Text (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1818716741
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818716740}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1094937973}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1818716742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818716740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.8873609, b: 0.61960787, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 7cb2912222469634ba17a77055919ea8, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 2
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: '
+
+    Decision Making'
+--- !u!222 &1818716743
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818716740}
+  m_CullTransparentMesh: 0
 --- !u!1 &1822334759
 GameObject:
   m_ObjectHideFlags: 0
@@ -44755,7 +44838,7 @@ PrefabInstance:
     - target: {fileID: 114642603537886326, guid: 55bcebf0300be464cb5f7ef8d78bb36d,
         type: 3}
       propertyPath: m_Text
-      value: Pegang objeknya
+      value: Genggam objeknya
       objectReference: {fileID: 0}
     - target: {fileID: 223426564196141252, guid: 55bcebf0300be464cb5f7ef8d78bb36d,
         type: 3}
@@ -49769,12 +49852,12 @@ GameObject:
   - component: {fileID: 2083065529}
   - component: {fileID: 2083065531}
   m_Layer: 5
-  m_Name: Empty box
+  m_Name: Case -1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2083065528
 RectTransform:
   m_ObjectHideFlags: 0
@@ -51622,9 +51705,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Pegang tuas lalu geser untuk nilai
+  m_Text: 'Genggam tuas lalu geser untuk
 
-    MAX dan MIN'
+    ON dan OFF'
 --- !u!222 &222679005863757244
 CanvasRenderer:
   m_ObjectHideFlags: 0

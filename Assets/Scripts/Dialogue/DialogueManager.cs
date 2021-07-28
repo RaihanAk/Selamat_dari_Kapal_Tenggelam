@@ -12,7 +12,7 @@ public class DialogueManager : MonoBehaviour
     [Tooltip("If later subtitle text were implemented")]
     public Text dialogueTextScreen;
 
-    private int dialogueInt = 0;
+    public int dialogueInt = 0;
 
     [Header("Component")]
     [Tooltip("Speakers to play the dialogue may be > 1")]

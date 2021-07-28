@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueName: 01_part1_entry-3
   clip: {fileID: 8300000, guid: 0c1f563590994ba4a8b40abc1fe74a77, type: 3}
-  dialogueText: Berada di sekoci tidak berarti tidak berada di sekoci berarti seseorang
-    akan mati.
+  dialogueText: Berada di sekoci berarti memiliki kemungkinan lebih tinggi untuk
+    bertahan hidup, tetapi tidak berada di sekoci berarti seseorang akan mati
   afterDelayType: 0
   waitSeconds: 1

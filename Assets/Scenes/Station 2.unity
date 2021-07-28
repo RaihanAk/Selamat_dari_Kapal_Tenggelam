@@ -2213,8 +2213,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 56034482}
-  m_LocalRotation: {x: -0.13425836, y: -0.35396543, z: -0.017404951, w: 0.9254082}
-  m_LocalPosition: {x: 0, y: 0, z: -1.43}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.44}
   m_LocalScale: {x: 0.023180254, y: 0.023180252, z: 0.023180254}
   m_Children:
   - {fileID: 1946217831}
@@ -2222,10 +2222,10 @@ RectTransform:
   - {fileID: 1557622787}
   m_Father: {fileID: 2052175213}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -15.118001, y: -42.359, z: 3.732}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -0.62, y: -0.82}
+  m_AnchoredPosition: {x: 12.45, y: -0.97}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &56034485
@@ -3132,8 +3132,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 121543065}
-  m_LocalRotation: {x: -0.2559375, y: 0.50047654, z: 0.15891197, w: 0.81164414}
-  m_LocalPosition: {x: -4.002619, y: -3.4151084, z: 1.235682}
+  m_LocalRotation: {x: -0.04017587, y: 0.5362478, z: 0.026259804, w: 0.8426949}
+  m_LocalPosition: {x: -5.7632227, y: -3.686973, z: -7.7407255}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1680894020}
@@ -23743,9 +23743,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dc51eb7c71eb5e046857f21fe7dd691e, type: 2}
   - {fileID: 11400000, guid: 850ea5b893277cc4a86e8ce71c52f4c1, type: 2}
   - {fileID: 11400000, guid: 309c28b24db2a94419b553493aab9a16, type: 2}
+  - {fileID: 11400000, guid: dd933fcc9502cf744b0e14cf461a57df, type: 2}
   - {fileID: 11400000, guid: 5e1617818bb357b4fb5a069d333e0697, type: 2}
   - {fileID: 11400000, guid: dd5573aebbfe3c84aac5fd96d207771f, type: 2}
   dialogueTextScreen: {fileID: 0}
+  dialogueInt: 0
   speakers:
   - {fileID: 1465456460}
 --- !u!1 &1119796048
@@ -34007,7 +34009,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 111
+  m_Text: 480
 --- !u!222 &1557622789
 CanvasRenderer:
   m_ObjectHideFlags: 0

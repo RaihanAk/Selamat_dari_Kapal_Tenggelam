@@ -17,5 +17,5 @@ MonoBehaviour:
   dialogueText: Jikalau anda telah menyelesaikan pilihan, genggam tuas mesin yang
     ada di sebelah kanan anda dan tarik ke kiri untuk menyalakan mesin sehingga mengakhiri
     pilihan
-  afterDelayType: 2
-  waitSeconds: 3
+  afterDelayType: 0
+  waitSeconds: 1
