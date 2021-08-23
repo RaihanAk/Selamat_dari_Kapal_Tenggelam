@@ -223,7 +223,7 @@ public class Station2Manager : GameManager
 
     public void CalculateScore()
     {
-        float jawabanBenar = 0;
+        float rightAnswer = 0;
 
         // Get all the current persona on the lifeboat
         for (int i = 0; i < lifeBoats.Length; i++)
@@ -247,13 +247,13 @@ public class Station2Manager : GameManager
                 personaSavedIndex[i] == 3 ||
                 personaSavedIndex[i] == 2 ||
                 personaSavedIndex[i] == 1)
-                jawabanBenar++;
+                rightAnswer++;
         }
-        Debug.Log("Jawaban benar: " +jawabanBenar);
+        Debug.Log("Jawaban benar: " +rightAnswer);
 
 
         /* Calculating */
-        if (jawabanBenar == 4)
+        if (rightAnswer == 4)
         {
             score = 90;
 
@@ -263,11 +263,11 @@ public class Station2Manager : GameManager
                 personaSavedIndex[3] == 1)
                 score = 100;
         }
-        else if (jawabanBenar == 3)
+        else if (rightAnswer == 3)
         {
             score = 80;
         }
-        else if (jawabanBenar == 2)
+        else if (rightAnswer == 2)
         {
             score = 40;
 
@@ -278,7 +278,7 @@ public class Station2Manager : GameManager
                         score += 10;
             }
         }
-        else if (jawabanBenar == 1)
+        else if (rightAnswer == 1)
         {
             score = 20;
         }
